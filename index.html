@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"
+    />
+    <title>Caffeinism Newsfeed</title>
+    <script
+      src="https://kit.fontawesome.com/cf266b83aa.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dataGenerator.js"></script>
+    <script src="moment.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Caffeinism Newsfeed</h1>
+    <div id="container">
+      <div id="input-div">
+        <div>
+          What's happening?
+          <input id="text" type="text" />
+        </div>
+        <div>
+          How was your feeling?
+          <select id="feelings">
+            <option value="" selected>none</option>
+            <option value="happy">happy</option>
+            <option value="smug">smug</option>
+            <option value="lovestruck">lovestruck</option>
+            <option value="gross">gross</option>
+            <option value="scared">scared</option>
+            <option value="tired">tired</option>
+            <option value="angry">angry</option>
+            <option value="frustrated">frustrated</option>
+            <option value="excited">excited</option>
+          </select>
+          <!-- <input id="img-input" type="file" name="image" /> -->
+          <button id="post-button">post</button>
+        </div>
+      </div>
+      <button id="reload">
+        <i class="fa-solid fa-arrow-rotate-right"></i>
+      </button>
+      <div id="newsfeed"></div>
+    </div>
+  </body>
+</html>
