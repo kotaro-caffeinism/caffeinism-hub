@@ -157,6 +157,11 @@ window.addEventListener("load", () => {
   // });
 
   usersPostButton.addEventListener("click", () => {
+    if ([...document.getElementById("text").value].length > 140) {
+      window.alert("you can input 140 or fewer characters");
+      return;
+    }
+
     const feelingsElement = document.getElementById("feelings");
     const feelings = feelingsElement.children;
 
