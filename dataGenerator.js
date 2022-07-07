@@ -26,10 +26,7 @@
     "waaaaah! i",
     "i just",
     "a salaryman",
-    "a salaryman",
     "yesterday I",
-    "a ninja",
-    "my boss",
   ];
   const verbs = [
     "ate",
@@ -81,6 +78,22 @@
     "unicorn",
     "pirate ship",
     "ninja",
+    "coffee",
+    "espresso coffee",
+    "black coffee",
+    "weak coffee",
+    "strong coffee",
+    "ice coffee",
+    "iced coffee",
+    "instant coffee",
+    "drip coffee",
+    "a coffee cup",
+    "a coffee shop",
+    "coffee break",
+    "coffee beans",
+    "cafe",
+    "a cup of coffee",
+    "two coffees",
   ];
   const hashtags = [
     "#techlife",
@@ -95,7 +108,8 @@
     "#japanlife",
     "#oops",
     "#caffeinism",
-    "#100-days-of-code",
+    "#100daysofcode",
+    "#withcreamandsugar",
     "",
   ];
 

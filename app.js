@@ -70,13 +70,25 @@ function makePostEl(post) {
     none: "",
   };
 
-  const feeling = document.createElement("div");
-  feeling.className = "feeling";
-  const i = document.createElement("i");
-  i.className = feelingsIconClasses[post.feeling];
-  feeling.append(i);
-  fragment.appendChild(feeling);
-  console.log(post.feeling);
+  if (post.feeling !== "none") {
+    const feelingDiv = document.createElement("div");
+    feelingDiv.className = "feeling-outer";
+    for (const key in feelingsIconClasses) {
+      const feelingSpan = document.createElement("span");
+      feelingSpan.className = "feeling";
+
+      const i = document.createElement("i");
+      i.className = feelingsIconClasses[key];
+
+      if (key === post.feeling) {
+        i.style.fontSize = "1.5em";
+      }
+
+      feelingSpan.append(i);
+      feelingDiv.append(feelingSpan);
+    }
+    fragment.appendChild(feelingDiv);
+  }
 
   const postEl = document.createElement("div");
   postEl.innerText = post.text;
