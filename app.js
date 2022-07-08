@@ -1,26 +1,32 @@
 // set or get username & icon
 
-let username = localStorage.getItem("username");
-let icon = localStorage.getItem("icon");
-if (!username) {
-  username = window.prompt("What is your name?");
-  const icons = [
-    "./images/cat-01.jpg",
-    "./images/cat-02.jpg",
-    "./images/cat-03.jpg",
-    "./images/cat-04.jpg",
-    "./images/cat-05.jpg",
-    "./images/cat-06.jpg",
-    "./images/cat-07.jpg",
-    "./images/cat-08.jpg",
-    "./images/cat-09.jpg",
-    "./images/cat-10.jpg",
-    "./images/cat-11.jpg",
-  ];
-  icon = icons[Math.floor(Math.random() * 11)];
-  localStorage.setItem("username", username);
-  localStorage.setItem("icon", icon);
-}
+const icons = [
+  "./images/cat-01.jpg",
+  "./images/cat-02.jpg",
+  "./images/cat-03.jpg",
+  "./images/cat-04.jpg",
+  "./images/cat-05.jpg",
+  "./images/cat-06.jpg",
+  "./images/cat-07.jpg",
+  "./images/cat-08.jpg",
+  "./images/cat-09.jpg",
+  "./images/cat-10.jpg",
+  "./images/cat-11.jpg",
+];
+
+const username = localStorage.getItem("username")
+  ? localStorage.getItem("username")
+  : (() => {
+      localStorage.setItem("username", window.prompt("What is your name?"));
+      return localStorage.getItem("username");
+    })();
+const icon = localStorage.getItem("icon")
+  ? localStorage.getItem("icon")
+  : (() => {
+      const icon = icons[Math.floor(Math.random() * 11)];
+      localStorage.setItem("icon", icon);
+      return localStorage.getItem("icon");
+    })();
 
 // tools
 
@@ -58,15 +64,15 @@ function makePostEl(post) {
   }
 
   const feelingsIconClasses = {
-    happy: "fa-solid fa-face-grin-beam", // "happy"
-    smug: "fa-solid fa-face-smile-wink", // "smug"
-    lovestruck: "fa-solid fa-face-grin-hearts", // "lovestruck",
-    gross: "fa-solid fa-face-frown", // "gross",
-    scared: "fa-solid fa-face-sad-cry", // "scared",
-    tired: "fa-solid fa-face-tired", // "tired",
-    angry: "fa-solid fa-face-angry", // "angry",
-    frustrated: "fa-solid fa-face-grimace", // "frustrated",
-    excited: "fa-solid fa-face-grin-stars", // "excited",
+    happy: "fa-solid fa-face-grin-beam",
+    smug: "fa-solid fa-face-smile-wink",
+    lovestruck: "fa-solid fa-face-grin-hearts",
+    gross: "fa-solid fa-face-frown",
+    scared: "fa-solid fa-face-sad-cry",
+    tired: "fa-solid fa-face-tired",
+    angry: "fa-solid fa-face-angry",
+    frustrated: "fa-solid fa-face-grimace",
+    excited: "fa-solid fa-face-grin-stars",
     none: "",
   };
 
@@ -100,8 +106,6 @@ function makePostEl(post) {
 // after html loaded, this function create first 10 post s
 
 window.addEventListener("load", () => {
-  // This is a check to see if there's a username stored
-
   const userDiv = document.createElement("div");
   userDiv.id = "user";
 
