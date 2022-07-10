@@ -1,18 +1,20 @@
+import { icons } from "./dataStore";
+
 // set or get username & icon
 
-const icons = [
-  "./images/cat-01.jpg",
-  "./images/cat-02.jpg",
-  "./images/cat-03.jpg",
-  "./images/cat-04.jpg",
-  "./images/cat-05.jpg",
-  "./images/cat-06.jpg",
-  "./images/cat-07.jpg",
-  "./images/cat-08.jpg",
-  "./images/cat-09.jpg",
-  "./images/cat-10.jpg",
-  "./images/cat-11.jpg",
-];
+// const icons = [
+//   "./images/cat-01.jpg",
+//   "./images/cat-02.jpg",
+//   "./images/cat-03.jpg",
+//   "./images/cat-04.jpg",
+//   "./images/cat-05.jpg",
+//   "./images/cat-06.jpg",
+//   "./images/cat-07.jpg",
+//   "./images/cat-08.jpg",
+//   "./images/cat-09.jpg",
+//   "./images/cat-10.jpg",
+//   "./images/cat-11.jpg",
+// ];
 
 const username = localStorage.getItem("username")
   ? localStorage.getItem("username")
@@ -23,7 +25,7 @@ const username = localStorage.getItem("username")
 const icon = localStorage.getItem("icon")
   ? localStorage.getItem("icon")
   : (() => {
-      const icon = icons[Math.floor(Math.random() * 11)];
+      const icon = dataStore.icons[Math.floor(Math.random() * 11)];
       localStorage.setItem("icon", icon);
       return localStorage.getItem("icon");
     })();
