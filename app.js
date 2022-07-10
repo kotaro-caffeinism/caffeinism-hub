@@ -40,8 +40,6 @@ function isToday(someDate) {
 }
 
 function makePostEl(post) {
-  console.log({ "post.image": post.image });
-
   const fragment = document.createDocumentFragment();
 
   const friendEl = document.createElement("div");
@@ -154,71 +152,16 @@ window.addEventListener("load", () => {
 
   const usersPostButton = document.getElementById("post-button");
 
-  let inputImg;
-
   const inputImgTag = document.getElementById("img-input");
 
-  // inputImgTag.addEventListener("change", () => {
-  //   const file = inputImgTag.files[0];
-  //   const reader = new FileReader();
-
-  //   // reader.onload = function (file) {
-  //   reader.onload = function () {
-  //     let resultStr = "";
-  //     const arrU8 = new Uint8Array(reader.result);
-  //     let str;
-  //     for (let i = 0; i < arrU8.length; i++) {
-  //       if (arrU8[i] < 0x10) {
-  //         str = "0" + arrU8[i].toString(16);
-  //       } else {
-  //         str = arrU8[i].toString(16);
-  //       }
-  //       if (i % 16 == 0) {
-  //         resultStr += str;
-  //       } else if (i % 16 == 15) {
-  //         resultStr += " " + str + "\n";
-  //       } else {
-  //         resultStr += " " + str;
-  //       }
-  //     }
-  //     console.log(resultStr);
-  //     inputImg = document.createElement("div");
-  //     const inputImgInner = document.createElement("img");
-  //     inputImgInner.innerText = resultStr;
-  //     inputImg.append(inputImgInner);
-  //   };
-
-  //   reader.readAsArrayBuffer(file);
-  // });
-
   inputImgTag.addEventListener("change", (e) => {
-    inputImg = document.createElement("div");
-    console.log({ inputImg });
-    const inputImgInner = document.createElement("img");
-    // inputImgInner.innerText = resultStr;
-    // inputImg.append(inputImgInner);
-
     const reader = new FileReader();
     reader.onload = (e) => {
-      inputImgInner.src = e.target.result;
-      console.log({ inputImgInner });
+      inputImg = e.target.result;
     };
-    inputImg.append(inputImgInner);
 
     reader.readAsDataURL(e.target.files[0]);
   });
-
-  // $("#input1").on("change", function (e) {
-  // 2. 画像ファイルの読み込みクラス
-  // var reader = new FileReader();
-
-  // 3. 準備が終わったら、id=sample1のsrc属性に選択した画像ファイルの情報を設定
-  // reader.onload = function (e) {
-  //   $("#sample1").attr("src", e.target.result);
-  // };
-
-  // 4. 読み込んだ画像ファイルをURLに変換
-  // reader.readAsDataURL(e.target.files[0]);
 
   usersPostButton.addEventListener("click", () => {
     if ([...document.getElementById("text").value].length > 140) {
@@ -244,7 +187,6 @@ window.addEventListener("load", () => {
         text: document.getElementById("text").value,
         feeling: userFeeling,
         image: inputImg ? inputImg : null,
-        // image: null,
         timestamp: new Date(),
       },
       newsFeedContainer
