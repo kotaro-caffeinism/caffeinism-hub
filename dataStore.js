@@ -12,4 +12,4 @@ const icons = [
   "./images/cat-11.jpg",
 ];
 
-export { icons };
+// export { icons };

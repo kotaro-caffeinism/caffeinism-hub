@@ -1,3 +1,4 @@
 # mac
 .DS_Store
 note.md
+/node_modules
